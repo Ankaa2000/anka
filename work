@@ -1,0 +1,46 @@
+pragma solidity >=0.8.2 <0.9.0; 
+
+contract Cliker {
+    address public user;
+    uint public clickMultiplier = 1;
+    uint public bonus = 500;
+
+    constructor() {
+        user = msg.sender;
+    }
+    mapping (address => User) public users;
+    mapping (string => address) public newus;
+
+     struct User {
+        string name;
+        uint balance;
+        uint clicks;
+        uint clickMultiplier;
+        uint withdrawableAmount;
+        uint lastClickTime;
+    }
+
+
+    function registerUser(string memory name) public view {
+
+    }
+
+    modifier onlyRegistered() {
+        require(msg.sender == user, "this user already exists");
+        _;
+    }
+
+    function click(uint lastClickTim ) public view returns(uint balance, uint clicks) {
+        balance += 1;
+        clicks + 1;
+        if(lastClickTime >= 10) {
+            return newbalance;
+        }
+    }
+
+    function transfer (address recipient, uint amount) public payable  {
+        require(User.balance >= amount,"translation failed");
+
+    }
+    
+}
